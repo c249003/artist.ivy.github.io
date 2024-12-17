@@ -1,0 +1,17 @@
+// 詳細表示のための関数
+function showDetails(artistId) {
+    let message = `アーティスト ${artistId} の詳細が表示されます。`;
+    alert(message);
+}
+
+// アルバム画像をクリックしたときに対応するアーティストセクションにスクロールする
+document.querySelectorAll('.slider-container img').forEach((img) => {
+  img.addEventListener('click', (event) => {
+    const target = event.target.dataset.target; // クリックされた画像のデータ属性からターゲットIDを取得
+    const targetElement = document.querySelector(target);
+    if (targetElement) {
+      // スムーズにスクロール
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
